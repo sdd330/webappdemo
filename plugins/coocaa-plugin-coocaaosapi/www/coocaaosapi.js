@@ -632,6 +632,15 @@ CoocaaOSApi.prototype.addAppTaskListener = function(listener)
     brocaster.addEventListener( "APP_TASK_CALLBACK",listener);
 }
 
+/*
+*  {'userchangged':'true'}
+          console.log( "USER_CHANGGED received!" + message.userchangged  );
+*/
+CoocaaOSApi.prototype.addUserChanggedListener = function(listener)
+{
+    argscheck.checkArgs('f','CoocaaOSApi.addUserChanggedListener',arguments);
+    brocaster.addEventListener( "USER_CHANGGED",listener);
+}
 
    module.exports = new CoocaaOSApi();
 });
