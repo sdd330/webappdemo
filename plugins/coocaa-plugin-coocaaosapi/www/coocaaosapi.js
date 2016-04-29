@@ -360,7 +360,7 @@ cordova.define("coocaa-plugin-coocaaosapi.coocaaosapi", function(require, export
 
 /*******************************************系统相关***********************************************/
 /*
-* 判断当前是否有用户登录
+* 判断当前是否有用户登录，只针对酷开账号，如果要判断第三方账号，还需要自行获取用户信息，判断第三方账号是否为空
 /*function (message){
                 console.log("haslogin " + message.haslogin);
             }
@@ -371,6 +371,14 @@ cordova.define("coocaa-plugin-coocaaosapi.coocaaosapi", function(require, export
 CoocaaOSApi.prototype.hasCoocaaUserLogin = function(success,error){
         argscheck.checkArgs('ff','CoocaaOSApi.hasCoocaaUserLogin',arguments);
         exec(success,error,'CoocaaOSApi','hasCoocaaUserLogin',[]);
+   }
+
+/*
+* 直接启动到第三方QQ登录界面
+*/
+CoocaaOSApi.prototype.startThirdQQAccount = function(success,error){
+        argscheck.checkArgs('ff','CoocaaOSApi.startThirdQQAccount',arguments);
+        exec(success,error,'CoocaaOSApi','startQQAccount',[]);
    }
 
 /*

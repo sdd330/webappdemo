@@ -47,6 +47,39 @@ var app = {
         */
     },
     // Update DOM on a Received Event
+    /*
+    * fis tools use relative path to general file's hash.
+    * so ,the abs path of this file is /js/index.js,if in this file to get the right png hash,and the png file are in img folder,
+    * in this file must use __uri(../img/xxx.png) to general the right hash png.
+    * but this file path can not be cast to html file,because the html file maybe in a root.
+    * please use the functions below to transfrmer the uri.
+    *
+    * function canonical_uri(src, base_path)
+      	{
+      		var root_page = /^[^?#]*\//.exec(location.href)[0],
+      		root_domain = /^\w+\:\/\/\/?[^\/]+/.exec(root_page)[0],
+      		absolute_regex = /^\w+\:\/\//;
+      		// is `src` is protocol-relative (begins with // or ///), prepend protocol
+      		if (/^\/\/\/?/.test(src))
+      		{
+      		src = location.protocol + src;
+      		}
+          // is `src` page-relative? (not an absolute URL, and not a domain-relative path, beginning with /)
+      		else if (!absolute_regex.test(src) && src.charAt(0) != "/")
+      		{
+      			// prepend `base_path`, if any
+      			src = (base_path || "") + src;
+      		}
+          // make sure to return `src` as absolute
+      		return absolute_regex.test(src) ? src : ((src.charAt(0) == "/" ? root_domain : root_page) + src);
+      	}
+
+      	function rel_html_imgpath(iconurl)
+      	{
+      		return canonical_uri(iconurl.replace(/.*\/([^\/]+\/[^\/]+)$/, '$1')));
+      	}
+
+    */
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');

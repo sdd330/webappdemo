@@ -58,6 +58,6 @@ fis.match('donothashme.js', {
   useHash: false
 })
 
-fis.match('*.{js,css,png}',  {
-	optimizer: null
-});
+// fis.match('*.{js,css,png}',  {
+	// optimizer: null
+// });
