@@ -430,23 +430,25 @@ CoocaaOSApi.prototype.getUserInfo = function(success,error){
 
 /*
 * 获取当前设备信息
-* message {"pennel","version","model","type","mac","chip"}
+* message {"pennel","version","model","chipid","mac","chip","androidsdk","devid","activeid"}
 /*function (message){
                 console.log("panel " + message.panel);
                 console.log("version " + message.version);
                 console.log("model " + message.model);
-                 console.log("type " + message.type);
+                 console.log("chip " + message.chip);
                   console.log("mac " + message.mac);
-                  console.log("chip " + message.chip);
+                  console.log("chipid " + message.chipid);
                   console.log("androidsdk " + message.androidsdk);
+                   console.log("devid " + message.devid);
+                    console.log("activeid " + message.activeid);
             }
    return:
    panel:屏幕尺寸
    version:酷开TV系统版本号
-   model:生产机芯
-   type:生产机型
+   model: 机型。
+   chip: 机芯。
    mac:设备mac(有线)
-   chip:芯片
+   chipid:机芯id
    androidsdk:android版本号
    devid:设备唯一id
    activeid:设备激活id/联网之后由后台分配
