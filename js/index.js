@@ -170,14 +170,9 @@ var app = {
        },false);
 
         document.getElementById("startplaymovie").addEventListener("click", function (){
-<<<<<<< HEAD
             var url = 'http://localhost/webappdemo/test.rmvb';
             var name = '孤独的美食家';
             coocaaosapi.playOnlineMovie(url,name,"false",function(message) {console.log(message); },function(error) { console.log(error);});
-=======
-            var movieitem = '';
-            coocaaosapi.playOnlineMovie(movieitem,function(message) {console.log(message); },function(error) { console.log(error);});
->>>>>>> 24f1a076e7f7d0c6edf6294accf38b7072734ab4
        },false);
 
         document.getElementById("startappstore").addEventListener("click", function (){
