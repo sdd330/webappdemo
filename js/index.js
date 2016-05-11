@@ -254,9 +254,9 @@ var app = {
                 console.log("panel " + message.panel);
                 console.log("version " + message.version);
                 console.log("model " + message.model);
-                console.log("type " + message.type);
-                console.log("mac " + message.mac);
                 console.log("chip " + message.chip);
+                console.log("mac " + message.mac);
+                console.log("chipid " + message.chipid);
                 console.log("androidsdk " + message.androidsdk);
                 console.log("devid " + message.devid);
                 console.log("activeid " + message.activeid);
