@@ -166,7 +166,11 @@ var app = {
         },false);
 
         document.getElementById("startmemcenter").addEventListener("click", function (){
-            coocaaosapi.startMovieMemberCenter(function(message) {console.log(message); },function(error) { console.log(error);});
+            coocaaosapi.startMovieMemberCenter('qq',function(message) {console.log(message); },function(error) { console.log(error);});
+       },false);
+
+        document.getElementById("startmoviehome").addEventListener("click", function (){
+            coocaaosapi.startMovieHome(function(message) {console.log(message); },function(error) { console.log(error);});
        },false);
 
         document.getElementById("startplaymovie").addEventListener("click", function (){
@@ -362,6 +366,23 @@ var app = {
         coocaaosapi.addAppTaskListener(function(message){
              console.log("taskinfo " + JSON.stringify(message));
         });
+
+        coocaaosapi.addPurchaseOrderListener(function(message){
+                      console.log("startpurcharse message " + JSON.stringify(message));
+                       document.getElementById("purcharsecallback").value = JSON.stringify(message);
+        });
+
+         document.getElementById("startpurcharse").addEventListener("click", function (){
+                    var math =  Math.random() * 9000000 + 1000000;
+                    coocaaosapi.purchaseOrder('1001',math+'','包月','product detail','虚拟',{'notify_url':'http://42.121.113.121:8090/aqiyiOrder/viewMain.html'},0.01,0,'','',
+                    function(success)
+                    {
+                    },
+                    function(error)
+                    {
+                          console.log(error);
+                    });
+                },false);
     }
 };
 
