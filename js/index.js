@@ -184,7 +184,7 @@ var app = {
        },false);
 
         document.getElementById("startappstorebd").addEventListener("click", function (){
-            coocaaosapi.startAppStoreBD(function(message) {console.log(message); },function(error) { console.log(error);});
+            coocaaosapi.startAppStoreBD(1,function(message) {console.log(message); },function(error) { console.log(error);});
        },false);
 
         document.getElementById("startappstoresort").addEventListener("click", function (){
@@ -383,6 +383,13 @@ var app = {
                           console.log(error);
                     });
                 },false);
+
+        document.getElementById("getusertoken").addEventListener("click", function (){
+            coocaaosapi.getUserAccessToken(function(message) {
+            console.log("usertoken " + message.accesstoken);
+            document.getElementById('usertokenid').value = JSON.stringify(message);
+            },function(error) { console.log(error);})
+        },false);
     }
 };
 

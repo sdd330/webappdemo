@@ -88,7 +88,6 @@ cordova.define("coocaa-plugin-coocaaosapi.coocaaosapi", function(require, export
              startapp.start([["action", "coocaa.intent.action.GAME_CENTER_MYGAME"]], success,error);
       }
 
-
 /*
 * 启动我的应用
 * mode: child / 其他，代表启动的是哪个模式下的程序
@@ -111,6 +110,14 @@ cordova.define("coocaa-plugin-coocaaosapi.coocaaosapi", function(require, export
       CoocaaOSApi.prototype.startUserSetting = function(success,error){
             argscheck.checkArgs('ff','CoocaaOSApi.startUserSetting',arguments);
              startapp.start([["action", "android.settings.ADD_ACCOUNT_SETTINGS"]], success,error);
+      }
+
+/*
+*启动用户设置，登录成功就消失
+*/
+      CoocaaOSApi.prototype.startUserSettingAndFinish = function(success,error){
+            argscheck.checkArgs('ff','CoocaaOSApi.startUserSettingAndFinish',arguments);
+             startapp.start([["action", "android.settings.ADD_ACCOUNT_SETTINGS"],[{'needFinish':true}]], success,error);
       }
 
 /*
@@ -145,6 +152,13 @@ cordova.define("coocaa-plugin-coocaaosapi.coocaaosapi", function(require, export
           startapp.start([["action", "android.settings.SYSTEM_UPGRADE"]], success,error);
       }
 
+/*
+* 获取用户access_token
+*/
+    CoocaaOSApi.prototype.getUserAccessToken = function(success,error){
+              argscheck.checkArgs('ff','CoocaaOSApi.getUserAccessToken',arguments);
+              exec(success,error,'CoocaaOSApi','getUserAccessToken',[]);
+          }
 /*******************************************影视相关***********************************************/
 
     function MovieItem(){
@@ -210,13 +224,13 @@ cordova.define("coocaa-plugin-coocaaosapi.coocaaosapi", function(require, export
         startapp.start([["action", "coocaa.intent.action.APP_STORE_HOME"]], success,error);
     }
 
-/*
-*启动应用商城榜单页
-*/
-   CoocaaOSApi.prototype.startAppStoreBD = function(success,error){
-         argscheck.checkArgs('ff','CoocaaOSApi.startAppStoreBD',arguments);
-         startapp.start([["action", "coocaa.intent.action.APP_STORE_BD"]], success,error);
-     }
+  /*
+  *启动应用商城榜单页
+  */
+     CoocaaOSApi.prototype.startAppStoreBD = function(rankid,success,error){
+           argscheck.checkArgs('nff','CoocaaOSApi.startAppStoreBD',arguments);
+           startapp.start([["action", "coocaa.intent.action.APP_STORE_RANKING"],[{'rankId':rankid }]], success,error);
+       }
 
 /*
 *启动应用商城分类页
